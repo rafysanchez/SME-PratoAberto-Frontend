@@ -18,27 +18,30 @@ export class SchoolsService {
   }
 
   get() {
-    let _url = AppSettings.BASE_URL + AppSettings.SCHOOLS_ENDPOINT;
+    let _url = '../assets/data/escolas.json' ;   // AppSettings.BASE_URL + AppSettings.SCHOOLS_ENDPOINT;
     // return this.http.get(_url, {headers: this.headers})
     return this.http.get(_url, {}).map((res) => {
       Globals.querySchool = true;
-      return res.json()
+      return res.json();
     });
   }
 
   getDetails() {
-    let _url = AppSettings.SCHOOLS_DETAILS_ENDPOINT;
+    // let _url = AppSettings.SCHOOLS_DETAILS_ENDPOINT;
+    let _url = '../assets/data/detalhes.json';
     // return this.http.get(_url, {headers: this.headers})
     return this.http.get(_url, {}).map((res) => {
-      return res.json()
+      return res.json();
     });
   }
 
   getById(id) {
-    let _url = AppSettings.BASE_URL + AppSettings.SCHOOL_ENDPOINT + `/${id}`;
+    debugger
+   // let _url = AppSettings.BASE_URL + AppSettings.SCHOOL_ENDPOINT + `/${id}`;
+     let _url = '../assets/data/getByid.json';
     // return this.http.get(_url, {headers: this.headers})
     return this.http.get(_url, {}).map((res) => {
-      return res.json()
-    });;
+      return res.json();
+    });
   }
 }

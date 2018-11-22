@@ -1,0 +1,30 @@
+{
+  "nome": "CEI CONV. CASA D. GASTÃO",
+  "tipo_unidade": "CEI_CONVENIADO",
+  "tipo_atendimento": "DIRETA",
+  "agrupamento": 3,
+  "endereco": "R. PRATES, 263",
+  "bairro": "BOM RETIRO",
+  "telefone": "(11)32273423",
+  "lat": -23.531233,
+  "lon": -46.636293,
+  "agrupamento_regiao": 3,
+  "idades": [
+    "1 ano",
+    "Todas as idades",
+    "2 a 3 anos",
+    "4 a 6 anos",
+    "1 a 3 meses",
+    "4 a 5 meses",
+    "8 a 11 meses",
+    "6 a 7 meses"
+  ],
+  "refeicoes": [
+    "Desjejum",
+    "Colação",
+    "Refeição",
+    "Almoço",
+    "Lanche",
+    "Refeição da Tarde"
+  ]
+}

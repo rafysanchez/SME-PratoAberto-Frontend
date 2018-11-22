@@ -19,14 +19,14 @@ export class SearchComponent implements OnInit, AfterViewInit {
   private sub : any;
   private nearSchoolsCarousel:any;
   public schoolSelected;
-  public errorMsg = "Carregando..."
+  public errorMsg = 'Carregando...';
   private searchInput : any;
   public userLocation = {};
   private positions = [];
   public schools = Globals.schools;
   public schoolsFromCarousel:Array<object> = [];
   public originSearch = Globals.originSearch;
-  public searchDeskValue = "";
+  public searchDeskValue = '';
   public schoolsLoaded:Boolean = false;
   public focusTriggeringEventEmitter = new EventEmitter<boolean>();
 
@@ -43,11 +43,11 @@ export class SearchComponent implements OnInit, AfterViewInit {
     this.doc = this.winRef.nativeWindow.document;
     this.sub = this.route.params.subscribe(params => {
       this.searchInput = params['search_input'];
-      this.doc.getElementById("searchInputMob").value
-      this.doc.getElementById("searchInputMob").value = this.searchInput;
+      this.doc.getElementById('searchInputMob').value
+      this.doc.getElementById('searchInputMob').value = this.searchInput;
     });
-    this.doc.getElementById("map-container").className = "map-container search-page";
-    this.doc.getElementById("map-loader").className = "loader__overlay search-page";
+    this.doc.getElementById('map-container').className = "map-container search-page";
+    this.doc.getElementById('map-loader').className = 'loader__overlay search-page';
   }
 
   ngAfterViewInit(){
@@ -55,7 +55,7 @@ export class SearchComponent implements OnInit, AfterViewInit {
       this.onLoadSchools();
     } else {
       this.schoolsLoaded = true;
-      this.errorMsg = "Nenhuma escola encontrada.";
+     this.errorMsg = 'Nenhuma escola encontrada.';
       this.schoolsFromCarousel = Globals.schools.filter(school => {
         return school['distance'] < 2;
       });
@@ -68,18 +68,18 @@ export class SearchComponent implements OnInit, AfterViewInit {
         });
       } else {
         Globals.mapInstance.setCenter({
-          lat: Globals.userLocation["lat"],
-          lng: Globals.userLocation["lon"]
+          lat: Globals.userLocation['lat'],
+          lng: Globals.userLocation['lon']
         });
       }
       Globals.mapInstance.setZoom(14);
       google.maps.event.trigger(Globals.mapInstance, 'resize');
     }
-    if (this.originSearch == "input"){
+    if (this.originSearch == 'input'){
       this.focusTriggeringEventEmitter.emit(true);
     } else {
       this.winRef.nativeWindow.$(window).resize(()=> {
-          if (this.winRef.nativeWindow.$(".search-carousel").length > 0){
+          if (this.winRef.nativeWindow.$('.search-carousel').length > 0){
             this.nearSchoolsCarousel.trigger('destroy.owl.carousel').removeClass('owl-carousel owl-loaded');
             this.winRef.nativeWindow.$('.owl-carousel-top').find('.owl-stage-outer').children().unwrap();
 
@@ -90,7 +90,7 @@ export class SearchComponent implements OnInit, AfterViewInit {
     }
   }
   buildCarousel(){
-    this.nearSchoolsCarousel = this.winRef.nativeWindow.$(".search-carousel").owlCarousel({
+    this.nearSchoolsCarousel = this.winRef.nativeWindow.$('.search-carousel').owlCarousel({
       items: 1,
       dots: false,
       nav:false,
@@ -130,7 +130,7 @@ export class SearchComponent implements OnInit, AfterViewInit {
         // console.log("self.schoolsFromCarousel", self.schoolsFromCarousel)
         self.schoolsLoaded = true;
         self.appComp.setMarkersBySchools();
-        self.errorMsg = "Nenhuma escola encontrada.";
+       // self.errorMsg = "Nenhuma escola encontrada.";
       }
     );
   }
@@ -146,9 +146,9 @@ export class SearchComponent implements OnInit, AfterViewInit {
   }
 
   searchBoxClear(e) {
-    this.doc.getElementById("searchInputMob").value = "";
-    this.doc.getElementById("searchInputDesk").value = "";
-    this.searchDeskValue = "";
+    this.doc.getElementById('searchInputMob').value = '';
+    this.doc.getElementById('searchInputDesk').value = '';
+    this.searchDeskValue = '';
   }
 
   autocompleListFormatter(data: any) {

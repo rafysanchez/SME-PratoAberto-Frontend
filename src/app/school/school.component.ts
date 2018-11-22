@@ -37,7 +37,7 @@ export class SchoolComponent implements OnInit {
       dateFormat: 'yyyy-mm-dd',
       firstDayOfWeek: 'su',
       sunHighlight: false,
-      background: "#3BAFDA",
+      background: '#3BAFDA',
       showTextBox: false,
       showCurDay: false
   };
